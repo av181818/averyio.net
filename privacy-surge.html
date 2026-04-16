@@ -11,12 +11,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --red:    #e01c2e;
-      --white:  #ffffff;
-      --text:   #1a1a1a;
-      --muted:  #555;
-      --border: #e5e5e5;
-      --bg:     #fafafa;
+      --red:        #e01c2e;
+      --red-dim:    rgba(224,28,46,0.15);
+      --red-border: rgba(224,28,46,0.4);
+      --bg:         #09000b;
+      --surface:    rgba(255,255,255,0.04);
+      --border:     rgba(255,255,255,0.08);
+      --text:       #ffffff;
+      --muted:      rgba(255,255,255,0.45);
+      --body-text:  rgba(255,255,255,0.72);
     }
 
     html { scroll-behavior: smooth; }
@@ -25,7 +28,32 @@
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
       line-height: 1.7;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(224,28,46,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 90%, rgba(224,28,46,0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 0;
     }
 
     /* NAV */
@@ -36,17 +64,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 5%;
-      height: 56px;
-      background: rgba(15, 0, 3, 0.96);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      padding: 0 clamp(20px, 5%, 60px);
+      height: 60px;
+      background: rgba(9, 0, 11, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
 
     nav a {
-      color: rgba(255,255,255,0.6);
+      color: var(--muted);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
+      font-weight: 400;
       transition: color 0.2s;
       display: inline-flex;
       align-items: center;
@@ -54,50 +84,76 @@
       padding: 0 4px;
       -webkit-tap-highlight-color: transparent;
     }
-    nav a:hover { color: #fff; }
+    nav a:hover { color: var(--text); }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .nav-logo span { color: var(--red); }
 
     /* HEADER */
     .header {
-      background: linear-gradient(160deg, #0f0003 0%, #1a0007 100%);
-      padding: clamp(32px, 6vw, 56px) 5% clamp(28px, 5vw, 48px);
+      position: relative;
+      z-index: 1;
+      padding: clamp(40px, 8vw, 72px) clamp(20px, 5%, 60px) clamp(32px, 6vw, 56px);
       text-align: center;
-      color: var(--white);
-      border-bottom: 3px solid var(--red);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .header h1 {
       font-size: clamp(2rem, 6vw, 3rem);
       font-weight: 900;
-      letter-spacing: -1px;
-      margin-bottom: 0.4rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.5rem;
     }
 
     .header p {
-      color: rgba(255,255,255,0.5);
+      color: var(--muted);
       font-size: clamp(0.8rem, 2.5vw, 0.88rem);
     }
 
     /* CONTENT */
     .content {
+      position: relative;
+      z-index: 1;
       max-width: 720px;
       margin: 0 auto;
-      padding: clamp(32px, 6vw, 56px) clamp(16px, 5%, 5%) clamp(56px, 10vw, 96px);
+      width: 100%;
+      padding: clamp(32px, 6vw, 56px) clamp(20px, 5%, 40px) clamp(56px, 10vw, 96px);
     }
 
     h2 {
-      font-size: clamp(1rem, 3vw, 1.15rem);
+      font-size: clamp(0.95rem, 3vw, 1.05rem);
       font-weight: 700;
+      color: var(--text);
       margin-top: 2.5rem;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.8rem;
       padding-top: 2.5rem;
       border-top: 1px solid var(--border);
       scroll-margin-top: 72px;
+      letter-spacing: -0.01em;
     }
     h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
 
     p {
-      font-size: clamp(0.9rem, 2.5vw, 0.95rem);
-      color: var(--muted);
+      font-size: clamp(0.88rem, 2.5vw, 0.93rem);
+      color: var(--body-text);
       margin-bottom: 0.9rem;
     }
 
@@ -108,33 +164,45 @@
       flex-direction: column;
       gap: 4px;
     }
-    li { font-size: clamp(0.9rem, 2.5vw, 0.95rem); color: var(--muted); }
+    li {
+      font-size: clamp(0.88rem, 2.5vw, 0.93rem);
+      color: var(--body-text);
+    }
+
+    strong { color: var(--text); font-weight: 600; }
 
     a { color: var(--red); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     /* FOOTER */
     footer {
-      background: #080001;
-      color: rgba(255,255,255,0.4);
-      padding: 1.4rem 5%;
-      font-size: 0.82rem;
+      position: relative;
+      z-index: 1;
+      margin-top: auto;
+      padding: 1.6rem clamp(20px, 5%, 60px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
     }
+
     footer a {
-      color: rgba(255,255,255,0.4);
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
       min-height: 44px;
       display: inline-flex;
       align-items: center;
+      padding: 0 2px;
     }
-    footer a:hover { color: var(--red); text-decoration: none; }
+    footer a:hover { color: var(--text); text-decoration: none; }
 
     @media (max-width: 580px) {
-      footer { flex-direction: column; text-align: center; align-items: center; }
+      footer { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
     }
   </style>
 </head>
@@ -142,7 +210,7 @@
 
   <nav>
     <a href="privacy.html">&larr; All apps</a>
-    <a href="index.html">averyio.net</a>
+    <a class="nav-logo" href="index.html">averyio<span>.net</span></a>
   </nav>
 
   <div class="header">
