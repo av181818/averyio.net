@@ -4,44 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>InvestFast — Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for the InvestFast app by AveryIO." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --red:        #e01c2e;
-      --red-dim:    rgba(224,28,46,0.15);
-      --red-border: rgba(224,28,46,0.4);
-      --bg:         #09000b;
-      --surface:    rgba(255,255,255,0.04);
-      --border:     rgba(255,255,255,0.08);
-      --text:       #ffffff;
-      --muted:      rgba(255,255,255,0.45);
-      --body-text:  rgba(255,255,255,0.72);
+      --red:        #C4152B;
+      --red-light:  rgba(196,21,43,0.07);
+      --red-border: rgba(196,21,43,0.20);
+      --bg:         #F7F7F5;
+      --surface:    #FFFFFF;
+      --border:     #E5E4E2;
+      --text:       #111111;
+      --muted:      #6B7280;
+      --body-text:  #374151;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
-      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.75;
     }
 
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(224,28,46,0.18) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 80% 90%, rgba(224,28,46,0.08) 0%, transparent 60%);
+      background: radial-gradient(ellipse 75% 50% at 50% -8%, rgba(196,21,43,0.045) 0%, transparent 65%);
       pointer-events: none;
       z-index: 0;
     }
@@ -50,109 +51,120 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 32px 32px;
+      background-image: radial-gradient(rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 24px 24px;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* NAV */
+    /* ── Nav ── */
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
+      width: 100%;
+      padding: 0 clamp(20px, 5%, 64px);
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 clamp(20px, 5%, 60px);
-      height: 60px;
-      background: rgba(9, 0, 11, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(247,247,245,0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
 
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 400;
-      transition: color 0.2s;
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      padding: 0 4px;
-      -webkit-tap-highlight-color: transparent;
-    }
-    nav a:hover { color: var(--text); }
-
     .nav-logo {
+      font-size: 0.95rem;
       font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: -0.02em;
       color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.03em;
     }
     .nav-logo span { color: var(--red); }
 
-    /* HEADER */
+    .nav-links {
+      display: flex;
+      gap: 0.2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(0,0,0,0.04); }
+
+    /* ── Header ── */
     .header {
       position: relative;
       z-index: 1;
-      padding: clamp(40px, 8vw, 72px) clamp(20px, 5%, 60px) clamp(32px, 6vw, 56px);
+      padding: clamp(48px, 9vw, 88px) clamp(20px, 5%, 64px) clamp(32px, 6vw, 56px);
       text-align: center;
       border-bottom: 1px solid var(--border);
+      background: var(--surface);
     }
 
     .header h1 {
       font-size: clamp(2rem, 6vw, 3rem);
       font-weight: 900;
       letter-spacing: -0.04em;
+      color: var(--text);
       margin-bottom: 0.5rem;
+      line-height: 1.05;
     }
 
     .header p {
       color: var(--muted);
-      font-size: clamp(0.8rem, 2.5vw, 0.88rem);
+      font-size: clamp(0.8rem, 2.5vw, 0.875rem);
+      font-weight: 400;
     }
 
-    /* CONTENT */
+    /* ── Content ── */
     .content {
       position: relative;
       z-index: 1;
       max-width: 720px;
       margin: 0 auto;
       width: 100%;
-      padding: clamp(32px, 6vw, 56px) clamp(20px, 5%, 40px) clamp(56px, 10vw, 96px);
+      padding: clamp(40px, 7vw, 64px) clamp(20px, 5%, 40px) clamp(64px, 12vw, 104px);
     }
 
     h2 {
-      font-size: clamp(0.95rem, 3vw, 1.05rem);
+      font-size: clamp(0.9rem, 2.8vw, 1rem);
       font-weight: 700;
       color: var(--text);
       margin-top: 2.5rem;
       margin-bottom: 0.8rem;
       padding-top: 2.5rem;
       border-top: 1px solid var(--border);
-      scroll-margin-top: 72px;
+      scroll-margin-top: 80px;
       letter-spacing: -0.01em;
     }
     h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
 
     p {
-      font-size: clamp(0.88rem, 2.5vw, 0.93rem);
+      font-size: clamp(0.875rem, 2.5vw, 0.925rem);
       color: var(--body-text);
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.85rem;
     }
 
     ul {
       padding-left: 1.4rem;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.85rem;
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
+
     li {
-      font-size: clamp(0.88rem, 2.5vw, 0.93rem);
+      font-size: clamp(0.875rem, 2.5vw, 0.925rem);
       color: var(--body-text);
     }
 
@@ -161,12 +173,12 @@
     a { color: var(--red); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* FOOTER */
+    /* ── Footer ── */
     footer {
       position: relative;
       z-index: 1;
       margin-top: auto;
-      padding: 1.6rem clamp(20px, 5%, 60px);
+      padding: 1.5rem clamp(20px, 5%, 64px);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -180,16 +192,20 @@
     footer a {
       color: var(--muted);
       text-decoration: none;
-      transition: color 0.2s;
-      min-height: 44px;
+      transition: color 0.15s;
+      padding: 4px 8px;
+      border-radius: 6px;
+      min-height: 36px;
       display: inline-flex;
       align-items: center;
-      padding: 0 2px;
     }
     footer a:hover { color: var(--text); text-decoration: none; }
 
-    @media (max-width: 580px) {
-      footer { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .footer-links { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+    @media (max-width: 480px) {
+      .nav-links a { padding: 8px 8px; font-size: 0.82rem; }
+      footer { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
     }
   </style>
 </head>
@@ -197,6 +213,10 @@
 
   <nav>
     <a class="nav-logo" href="index.html">averyio<span>.net</span></a>
+    <div class="nav-links">
+      <a href="privacy.html">← Privacy</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </nav>
 
   <div class="header">
@@ -308,8 +328,8 @@
   </div>
 
   <footer>
-    <span>&copy; 2026 AveryIO &mdash; investfast.net</span>
-    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+    <span>&copy; 2026 AveryIO</span>
+    <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="contact.html">Contact</a>
       <a href="privacy.html">Privacy</a>
