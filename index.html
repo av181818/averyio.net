@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AveryIO — iOS &amp; Web Developer</title>
+  <title>averyio.net</title>
   <meta name="description" content="averyio.net — Building products for the web and iOS." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23C4152B'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='21' font-weight='700' text-anchor='middle' fill='white'%3Ea%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -140,6 +141,16 @@
       animation: fadeUp 0.6s ease forwards 0.2s;
     }
     .hero h1 span { color: var(--red); }
+
+    .hero-byline {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.35s;
+    }
 
     .hero-tagline {
       margin-top: 2rem;
@@ -326,6 +337,7 @@
   <div class="hero">
     <span class="hero-eyebrow">Portfolio</span>
     <h1>averyio<span>.net</span></h1>
+    <p class="hero-byline">a company by Matthew Avery</p>
   </div>
 
   <div class="divider"><hr /></div>
